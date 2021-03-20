@@ -1,0 +1,7 @@
+{
+  "name": "mobileMoney",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

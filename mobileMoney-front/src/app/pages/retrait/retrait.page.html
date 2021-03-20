@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="login-logo">
+      <img src="../assets/img/logoSaMoney.jpeg" alt="SaMoney logo" />
+    </div>
+    <ion-title>
+      <ion-icon name="return-up-back-outline" color="primary"></ion-icon>
+      retrait
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary">
+        <ion-icon name="home-sharp"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="retirer()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Code</ion-label>
+        <ion-input formControlName="codeTransaction" (change)="rechercher()" type="text" >
+        </ion-input>
+      </ion-item>
+      <ion-segment [value]="position">
+        <ion-segment-button (click)="preview()" value="beneficiaire">
+          <ion-label>Bénéficiaire</ion-label>
+        </ion-segment-button>
+        <ion-segment-button (click)="next()" value="emetteur">
+          <ion-label>Emetteur</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <section *ngIf="visible">
+        <ion-item>
+          <ion-label position="floating">N° CNI</ion-label>
+          <ion-input formControlName="prenom" type="text" spellcheck="false"  autocapitalize="off">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Prénom & Nom</ion-label>
+          <ion-input value="">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Montant À Recevoir</ion-label>
+          <ion-input value="">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Téléphone</ion-label>
+          <ion-input value="">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Date D'envoie</ion-label>
+          <ion-input value="">
+          </ion-input>
+        </ion-item>
+        <ion-button expand="block"  type="submit" class="btn btn-block rounded-3" color="danger">Suivant</ion-button>
+      </section>
+      <section *ngIf="!visible">
+        <ion-item>
+          <ion-label position="floating">N° CNI</ion-label>
+          <ion-input value="">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Prénom & Nom</ion-label>
+          <ion-input value="" >
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Montant Envoié</ion-label>
+          <ion-input value="">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Téléphone</ion-label>
+          <ion-input value="">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Date D'envoie</ion-label>
+          <ion-input value="">
+          </ion-input>
+        </ion-item>
+        <ion-button expand="block"  type="submit" class="btn btn-block rounded-3" color="danger">Retirer</ion-button>
+      </section>
+    </ion-list>
+  </form>
+</ion-content>

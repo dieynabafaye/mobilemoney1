@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="login-logo">
+      <img src="../assets/img/logoSaMoney.jpeg" alt="SaMoney logo" />
+    </div>
+    <ion-title class="text-center">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #loginForm="ngForm" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input
+          [(ngModel)]="login.username"
+          #username="ngModel"
+          name="username"
+          type="email"
+          spellcheck="false"
+          autocapitalize="off"
+          required
+          value="diana"
+        >
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger">
+        <p
+          [hidden]="username.valid || submitted == false"
+          class="ion-padding-start"
+        >
+          Username est obligatoire
+        </p>
+      </ion-text>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input
+          [(ngModel)]="login.password"
+          #password="ngModel"
+          name="password"
+          type="password"
+          required
+          value="password"
+        >
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger">
+        <p
+          [hidden]="password.valid || submitted == false"
+          class="ion-padding-start"
+        >
+          Mot de passe est obligatoire
+        </p>
+      </ion-text>
+    </ion-list>
+
+    <ion-button (click)="onLogin(loginForm)" expand="block"
+      class="text-white">connexion</ion-button
+    >
+  </form>
+</ion-content>

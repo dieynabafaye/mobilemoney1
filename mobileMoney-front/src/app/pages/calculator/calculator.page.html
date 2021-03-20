@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="login-logo">
+      <img src="../assets/img/logoSaMoney.jpeg" alt="SaMoney logo" />
+    </div>
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary">
+        <ion-icon name="home-sharp"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="calculator-outline" color="primary"></ion-icon>
+      calculateur de frais
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Type de transaction</ion-label>
+        <ion-input name="text"
+          type="email" spellcheck="false"  autocapitalize="off"  required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Montant</ion-label>
+        <ion-input name="number" type="password" required>
+        </ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="ion-float-right rounded-pill" color="danger">Calculer</ion-button>
+  </form>
+</ion-content>
+

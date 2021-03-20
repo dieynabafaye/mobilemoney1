@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="login-logo">
+      <img src="../assets/img/logoSaMoney.jpeg" alt="SaMoney logo" />
+    </div>
+    <ion-title>
+      <ion-icon name="return-up-forward-outline" color="primary"></ion-icon>
+      depot
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary">
+        <ion-icon name="home-sharp"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="form" (ngSubmit)="addDepot()">
+    <ion-list>
+      <ion-item>
+        <ion-segment [value]="position">
+          <ion-segment-button (click)="preview()" value="emetteur">
+            <ion-label>Emetteur</ion-label>
+          </ion-segment-button>
+          <ion-segment-button (click)="next()" value="beneficiaire">
+            <ion-label>Bénéficiaire</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-item>
+      <section *ngIf="visible">
+        <section formGroupName="clientenvoi">
+          <ion-item>
+            <ion-label position="floating" >N° CNI</ion-label>
+            <ion-input formControlName="CNI" type="text" spellcheck="false"  autocapitalize="off"  >
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Nom</ion-label>
+            <ion-input formControlName="nom" type="text" >
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Prénom</ion-label>
+            <ion-input formControlName="prenom" type="text" spellcheck="false"  autocapitalize="off"  >
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Téléphone</ion-label>
+            <ion-input formControlName="tel" type="text" >
+            </ion-input>
+          </ion-item>
+        </section>
+        <ion-item>
+          <ion-label position="floating">Montant</ion-label>
+          <ion-input formControlName="montant" class="argent" [value]="montantEnvoi" type="number" (keyup)="calculFrais($event)" spellcheck="false"  autocapitalize="off"  >
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Frais</ion-label>
+          <ion-input  disabled [value]="frais" class="argent" type="number" >
+          </ion-input>
+        </ion-item>
+        <ion-item>
+        <ion-label position="floating">Total</ion-label>
+        <ion-input formControlName="total" class="argent" [value]="totalMontant" (keyup)="decalculFrais($event)" type="number" >
+        </ion-input>
+      </ion-item>
+        <ion-button expand="block" type="button" (click)="next()" class="btn btn-block rounded-3" color="danger">Suivant</ion-button>
+      </section>
+
+      <section *ngIf="!visible" formGroupName="clientRetrait">
+        <ion-item>
+          <ion-label position="floating">Prénom</ion-label>
+          <ion-input formControlName="prenom" type="text" spellcheck="false"  autocapitalize="off">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input formControlName="nom" type="text" >
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Téléphone</ion-label>
+          <ion-input formControlName="tel" type="text">
+          </ion-input>
+        </ion-item>
+        <ion-button expand="block"  type="submit" class="btn btn-block rounded-3" color="danger">Envoyer</ion-button>
+      </section>
+    </ion-list>
+
+  </form>
+</ion-content>
