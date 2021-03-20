@@ -1,0 +1,34 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+api_login_check:
+  path: /api/login_check
+  methods: ['POST']
+
+addingAgence:
+  path: /api/admin/agences
+  controller: App\Controller\AgenceController::AddAgence
+
+post_transaction:
+  path: /api/admin/transactions
+  controller: App\Controller\TransactionController::addTransaction
+find_transaction:
+  path: /api/admin/transactions/code
+  controller: App\Controller\TransactionController::findTransaction
+
+post_calculer:
+  path: /api/admin/transactions/calculer
+  controller: App\Controller\TransactionController::CalculerFrais
+post_decalculer:
+  path: /api/admin/transactions/decalculer
+  controller: App\Controller\TransactionController::DeCalculerFrais
+delete_transaction:
+  path: /api/admin/transactions/delete
+  controller: App\Controller\TransactionController::DeleteTransaction
+addDepot:
+  path: /api/admin/depots
+  controller: App\Controller\DepotController::ADDdepot
+deleteDepot:
+  path: /api/admin/depots/{id}
+  controller: App\Controller\DepotController::Deletedepot
+
